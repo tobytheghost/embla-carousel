@@ -1,5 +1,2 @@
-const settings = {
-  nrOfSlides: 5,
-}
-
+const settings = { nrOfSlides: 5 }
 export default settings

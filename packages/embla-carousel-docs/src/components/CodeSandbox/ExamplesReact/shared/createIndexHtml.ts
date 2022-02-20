@@ -1,8 +1,6 @@
 import { kebabCaseToPascalCase } from 'utils'
 
-export const createIndexHtml = (
-  title: string = 'Embla React Example',
-): string => {
+export const createIndexHtml = (title: string = ''): string => {
   const formattedTitle = kebabCaseToPascalCase(title, ' ')
 
   return `
