@@ -6,12 +6,31 @@ date: 2021-02-21
 ---
 
 import { CarouselLinks, CarouselBasic } from 'components/Embla'
+import {
+  SandboxLinks,
+  DefaultWrapper,
+  defaultReactSandbox,
+  DefaultReactCarousel,
+} from 'components/CodeSandbox'
 
 # Basic Examples
 
 Basic carousel setups that require minimal effort to get started with.
 
 ### Default
+
+<SandboxLinks
+  links={[
+    {
+      label: 'React',
+      sandbox: defaultReactSandbox,
+    },
+  ]}
+/>
+
+<DefaultWrapper>
+  <DefaultReactCarousel slides={[0, 1, 2, 3, 4, 5]} />
+</DefaultWrapper>
 
 <CarouselLinks
   links={[

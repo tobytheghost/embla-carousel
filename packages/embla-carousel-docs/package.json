@@ -31,6 +31,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "babel-plugin-styled-components": "^2.0.2",
+    "codesandbox": "^2.2.3",
     "embla-carousel-autoplay": "6.2.0",
     "embla-carousel-react": "6.2.0",
     "focus-trap-react": "^8.9.1",
