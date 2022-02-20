@@ -18,6 +18,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/ban-types': [
       'error',
       {

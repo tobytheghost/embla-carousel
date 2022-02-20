@@ -1,6 +1,11 @@
 import docsPackageJson from '../../../../../package.json'
+import { PackageJson as BasePackageJsonType } from 'type-fest'
 
-const packageJsonTemplate = {
+type PackageJsonType = BasePackageJsonType & {
+  browserslist: string[]
+}
+
+const packageJsonTemplate: PackageJsonType = {
   name: '',
   version: '1.0.0',
   description: 'Embla Carousel React example',
@@ -23,6 +28,8 @@ const packageJsonTemplate = {
   browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
 }
 
-export const createPackageJson = (customConfig: Record<string, unknown>) => {
+export const createPackageJson = (
+  customConfig: Record<string, unknown>,
+): PackageJsonType => {
   return Object.assign({}, packageJsonTemplate, customConfig)
 }
