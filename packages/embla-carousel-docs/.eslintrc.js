@@ -18,6 +18,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-var-requires': 0,
     'react/prop-types': 'off',
     '@typescript-eslint/ban-types': [
       'error',
@@ -40,6 +41,16 @@ module.exports = {
       files: ['src/components/Page/Mdx.tsx'],
       rules: {
         'react/display-name': 'off',
+      },
+    },
+    {
+      files: [
+        'src/components/CodeSandbox/ExamplesVanilla/**/*js',
+        'src/components/CodeSandbox/ExamplesReact/**/*.js',
+      ],
+      rules: {
+        'no-undef': 0,
+        '@typescript-eslint/no-unused-vars': 0,
       },
     },
   ],
