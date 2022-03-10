@@ -1,9 +1,5 @@
 import docsPackageJson from '../../../../../package.json'
-import { PackageJson as BasePackageJsonType } from 'type-fest'
-
-type PackageJsonType = BasePackageJsonType & {
-  browserslist: string[]
-}
+import { PackageJsonType } from 'components/CodeSandbox/shared/types'
 
 const packageJsonTemplate: PackageJsonType = {
   name: '',
@@ -12,8 +8,8 @@ const packageJsonTemplate: PackageJsonType = {
   main: 'src/js/index.js',
   dependencies: {
     'embla-carousel-react': docsPackageJson.version,
-    react: '17.0.2',
-    'react-dom': '17.0.2',
+    react: docsPackageJson.dependencies.react,
+    'react-dom': docsPackageJson.dependencies['react-dom'],
     'react-scripts': '5.0.0',
   },
   devDependencies: {

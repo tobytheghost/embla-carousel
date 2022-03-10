@@ -1,41 +1,32 @@
-import { css } from 'styled-components'
 import { LAYERS } from 'consts'
-import { createSquareSizeStyles, gradientTextStyles } from 'utils'
 
-const ITEM_SPACING = '1rem'
+export const SLIDE_HEIGHT = '19rem'
 
-export const defaultStyles = css`
-  .embla {
-    height: 100%;
-  }
-
+export const defaultStyles = `
   .embla__viewport {
     overflow: hidden;
-    height: 100%;
-    width: 100%;
   }
 
   .embla__container {
-    height: 100%;
     display: flex;
   }
 
   .embla__slide {
     position: relative;
-    height: 100%;
     flex: 0 0 100%;
-    margin-left: ${ITEM_SPACING};
+    margin-left: 1rem;
   }
 
   .embla__slide__img {
-    height: 100%;
     display: flex;
     object-fit: cover;
     width: 100%;
+    height: ${SLIDE_HEIGHT};
   }
 
   .embla__slide__number {
-    ${createSquareSizeStyles('4.6rem')};
+    width: 4.6rem;
+    height: 4.6rem;
     z-index: ${LAYERS.STEP};
     position: absolute;
     top: 0.8rem;
@@ -46,15 +37,22 @@ export const defaultStyles = css`
     font-weight: 500;
     text-align: center;
     pointer-events: none;
+  }
 
-    > span {
-      ${gradientTextStyles};
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
+  .embla__slide__number > span {
+    background-image: linear-gradient(
+      45deg,
+      var(--brand-primary),
+      var(--brand-secondary)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 `

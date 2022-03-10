@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { mediaByIndex } from './media'
+import mediaByIndex from './media'
 
-const EmblaCarousel = ({ slides }) => {
-  const [viewportRef, embla] = useEmblaCarousel({ loop: false })
+const EmblaCarousel = ({ options, slides }) => {
+  const [viewportRef] = useEmblaCarousel(options)
 
   return (
     <div className="embla">

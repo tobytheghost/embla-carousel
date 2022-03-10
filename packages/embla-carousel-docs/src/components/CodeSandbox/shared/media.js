@@ -7,4 +7,6 @@ const media = [
   `${MEDIA_ROOT}/slide-4.jpg`,
 ]
 
-export const mediaByIndex = (index) => media[index % media.length]
+const mediaByIndex = (index) => media[index % media.length]
+
+export default mediaByIndex

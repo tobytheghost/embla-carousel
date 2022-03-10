@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom'
 import EmblaCarousel from './EmblaCarousel'
 import Header from './Header'
 import Footer from './Footer'
-import settings from './settings'
-import '../css/base.css'
 import '../css/reset.css'
-import '../css/header.css'
-import '../css/footer.css'
+import '../css/base.css'
 import '../css/embla.css'
 
-const slides = Array.from(Array(settings.nrOfSlides).keys())
+const CAROUSEL_OPTIONS = __REPLACE_ENTRY_CAROUSEL_OPTIONS__
+const SLIDE_COUNT = __REPLACE_ENTRY_SLIDE_COUNT__
+const slides = Array.from(Array(SLIDE_COUNT).keys())
 
 const App = () => (
-  <main>
+  <main className="sandbox">
     <Header />
-    <EmblaCarousel slides={slides} />
+    <div className="sandbox__carousel">
+      <EmblaCarousel options={CAROUSEL_OPTIONS} slides={slides} />
+    </div>
     <Footer />
   </main>
 )

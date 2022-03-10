@@ -4,7 +4,9 @@ const Footer = () => (
   <footer className="footer">
     <a
       className="footer__link"
-      href="https://github.com/davidcetinkaya/embla-carousel"
+      href="__REPLACE_FOOTER_GITHUB_LINK__"
+      target="_blank"
+      rel="noreferrer"
     >
       <svg
         className="footer__link__svg"

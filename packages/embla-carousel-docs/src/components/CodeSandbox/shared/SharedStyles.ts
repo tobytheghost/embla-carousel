@@ -1,14 +1,7 @@
-export const baseStyles = `
-  html {
-    font-size: 62.5%;
-  }
-  body {
-    line-height: 1.5;
-    font-size: 1.6rem;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-`
+import {
+  themeLightColorVariableStyles,
+  themeLightRGBVariableStyles,
+} from 'consts/themes'
 
 export const resetStyles = `
   html {
@@ -165,12 +158,44 @@ export const resetStyles = `
   }
 `
 
+export const baseStyles = `
+  :root {
+    ${themeLightColorVariableStyles}
+    ${themeLightRGBVariableStyles}
+  }
+
+  html {
+    font-size: 62.5%;
+    background-color: var(--background-site);
+  }
+
+  body {
+    background-color: var(--background-site);
+    color: var(--text-high-contrast);
+    line-height: 1.65;
+    font-size: 1.6rem;
+  }
+`
+
+export const sandboxStyles = `
+  .sandbox {
+    max-width: 67rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sandbox__carousel {
+    padding: 1.6rem;
+    background-color: var(--background-code);
+  }
+`
+
 export const headerStyles = `
   .header {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    padding: 40px 20px 20px 20px;
+    padding: 4rem 2rem 2rem 2rem;
   }
 `
 
@@ -178,7 +203,7 @@ export const footerStyles = `
   .footer {
     display: flex;
     justify-content: center;
-    padding: 20px 20px 40px 20px;
+    padding: 2rem 2rem 4rem 2rem;
   }
 
   .footer__link {
@@ -186,18 +211,16 @@ export const footerStyles = `
     align-items: center;
     background-color: transparent;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 3rem;
     text-align: center;
-    font-weight: bold;
-    color: black;
-    font-size: 14px;
+    color: var(--text-low-contrast);
   }
 
   .footer__link__svg {
     display: block;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    fill: rgb(192, 192, 192);
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 1rem;
+    fill: currentColor;
   }
 `

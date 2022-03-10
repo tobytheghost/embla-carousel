@@ -1,1 +1,1 @@
-export * from '../../shared/media'
+export { default } from '../../shared/media'

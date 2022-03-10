@@ -1,4 +1,4 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components'
+import { css } from 'styled-components'
 
 const camelCaseToPascalCase = (string: string = ''): string =>
   string
@@ -10,17 +10,12 @@ const themeToColorVariableStyles = (colors: {
   [key: string]: string
 }): string => {
   const colorNames = Object.keys(colors).map(camelCaseToPascalCase)
-  return Object.keys(colors).reduce(
-    (acc, colorKey, index) =>
-      acc + `--${colorNames[index]}:${colors[colorKey]};`,
-    '',
-  )
+  return Object.keys(colors)
+    .map((colorKey, index) => `--${colorNames[index]}:${colors[colorKey]};`)
+    .join('\n')
 }
 
-const themeToRGBVariableStyles = (
-  styledComponentsCss: FlattenSimpleInterpolation,
-): string => {
-  const css = <string>styledComponentsCss[0] || ''
+const themeToRGBVariableStyles = (css: string): string => {
   return css.replace(/:/g, '-rgb-value:').replace(/rgb\(|\)/g, '')
 }
 
@@ -70,21 +65,29 @@ export const THEME_COLORS = {
   },
 }
 
-const themeLightStyles = css`
-  ${themeToColorVariableStyles(THEME_COLORS[THEME_KEYS.LIGHT])}
-`
+export const themeLightColorVariableStyles = themeToColorVariableStyles(
+  THEME_COLORS[THEME_KEYS.LIGHT],
+)
 
-const themeDarkStyles = css`
-  ${themeToColorVariableStyles(THEME_COLORS[THEME_KEYS.DARK])}
-`
+export const themeDarkColorVariableStyles = themeToColorVariableStyles(
+  THEME_COLORS[THEME_KEYS.DARK],
+)
+
+export const themeLightRGBVariableStyles = themeToRGBVariableStyles(
+  themeLightColorVariableStyles,
+)
+
+export const themeDarkRGBVariableStyles = themeToRGBVariableStyles(
+  themeDarkColorVariableStyles,
+)
 
 export const themeStyles = css`
   .${THEME_PREFIX}${THEME_KEYS.LIGHT} {
-    ${themeLightStyles}
-    ${themeToRGBVariableStyles(themeLightStyles)}
+    ${themeLightColorVariableStyles}
+    ${themeLightRGBVariableStyles}
   }
   .${THEME_PREFIX}${THEME_KEYS.DARK} {
-    ${themeDarkStyles}
-    ${themeToRGBVariableStyles(themeDarkStyles)}
+    ${themeDarkColorVariableStyles}
+    ${themeDarkRGBVariableStyles}
   }
 `

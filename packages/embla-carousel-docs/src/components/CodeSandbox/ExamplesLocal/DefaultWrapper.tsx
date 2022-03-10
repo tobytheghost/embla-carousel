@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { frameCollapseStyles } from 'components/SiteLayout'
 import { breakpoints } from 'consts'
 import { useInView } from 'react-intersection-observer'
-import { defaultStyles } from './defaultStyles'
+import { defaultStyles, SLIDE_HEIGHT } from './defaultStyles'
 
-const HEIGHT = '22.2rem'
-export const FRAME_SPACING = '1.6rem'
-export const FRAME_RADIUS = '0.4rem'
+const FRAME_SPACING = '1.6rem'
+const FRAME_HEIGHT = `calc(${SLIDE_HEIGHT} + (${FRAME_SPACING} * 2))`
+const FRAME_RADIUS = '0.4rem'
 
 const Wrapper = styled.div`
-  height: ${HEIGHT};
+  height: ${FRAME_HEIGHT};
   padding: ${FRAME_SPACING};
   background-color: var(--background-code);
   position: relative;
